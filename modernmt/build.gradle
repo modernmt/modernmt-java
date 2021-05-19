@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library'
+}
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.httpcomponents.client5:httpclient5-fluent:5.0.3'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}
+
+version = '1.0.0'
