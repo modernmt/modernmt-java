@@ -7,9 +7,13 @@ if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 	exit 1
 fi
 
-gradle_match="version = "
-gradle_ver="version = '${VERSION}'"
-sed -i -E "/$gradle_match/s/.*/$gradle_ver/" modernmt/build.gradle
+build_match="version = "
+build_ver="version = '${VERSION}'"
+sed -i -E "/$build_match/s/.*/$build_ver/" modernmt/build.gradle
+
+prop_match="VERSION_NAME="
+prop_ver="VERSION_NAME=${VERSION}"
+sed -i -E "/$prop_match/s/.*/$prop_ver/" gradle.properties
 
 src_file="modernmt/src/main/java/com/modernmt/ModernMT.java"
 

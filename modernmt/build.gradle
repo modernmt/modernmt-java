@@ -17,3 +17,5 @@ dependencies {
 }
 
 version = '1.0.0'
+
+apply from: "${rootProject.projectDir}/build.gradle"
