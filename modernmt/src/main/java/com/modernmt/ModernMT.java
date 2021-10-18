@@ -6,6 +6,8 @@ import com.modernmt.model.Translation;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 public class ModernMT {
 
@@ -80,7 +82,7 @@ public class ModernMT {
         if (source != null)
             data.put("source", source);
         if (hints != null)
-            data.put("hints", hints);
+            data.put("hints", LongStream.of(hints).mapToObj(Long::toString).collect(Collectors.joining(",")));
         if (contextVector != null)
             data.put("context_vector", contextVector);
 
@@ -138,7 +140,7 @@ public class ModernMT {
         data.put("text", text);
 
         if (hints != null)
-            data.put("hints", hints);
+            data.put("hints", LongStream.of(hints).mapToObj(Long::toString).collect(Collectors.joining(",")));
         if (limit != null)
             data.put("limit", limit);
 
@@ -242,7 +244,7 @@ public class ModernMT {
         data.put("targets", targets);
 
         if (hints != null)
-            data.put("hints", hints);
+            data.put("hints", LongStream.of(hints).mapToObj(Long::toString).collect(Collectors.joining(",")));
         if (limit != null)
             data.put("limit", limit);
         if (compression != null)
