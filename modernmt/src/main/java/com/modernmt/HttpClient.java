@@ -57,7 +57,7 @@ class HttpClient {
                     value = ((List<?>) value).stream().map(String::valueOf).collect(Collectors.joining(","));
 
                 if (value instanceof long[])
-                    value = LongStream.of((long[])value).mapToObj(Long::toString).collect(Collectors.joining(", "));
+                    value = LongStream.of((long[])value).mapToObj(Long::toString).collect(Collectors.joining(","));
 
                 multipartBuilder.addTextBody(el.getKey(), value.toString());
             }
