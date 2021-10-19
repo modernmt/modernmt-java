@@ -27,7 +27,7 @@ public class ModernMT {
     }
 
     public ModernMT(String apiKey, String platform) {
-        this(apiKey, platform, "1.0.0");
+        this(apiKey, platform, "1.0.1");
     }
 
     public ModernMT(String apiKey) {

@@ -16,6 +16,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 }
 
-version = '1.0.0'
+version = '1.0.1'
 
 apply from: "${rootProject.projectDir}/build.gradle"
