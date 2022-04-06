@@ -3,7 +3,7 @@ package com.modernmt.model;
 public class ImportJob extends Model {
 
     private String id;
-    private long memory;
+    private Long memory;
     private int size;
     private float progress;
 
@@ -11,8 +11,8 @@ public class ImportJob extends Model {
         return id;
     }
 
-    public long getMemory() {
-        return memory;
+    public Long getMemory() {
+        return null;
     }
 
     public int getSize() {
