@@ -91,6 +91,7 @@ public class ModernMT {
             String projectId = options.getProjectId();
             Boolean multiline = options.getMultiline();
             Integer timeout = options.getTimeout();
+            String format = options.getFormat();
 
             if (priority != null)
                 data.put("priority", priority);
@@ -100,6 +101,8 @@ public class ModernMT {
                 data.put("multiline", multiline);
             if (timeout != null)
                 data.put("timeout", timeout);
+            if (format != null)
+                data.put("format", format);
         }
 
         return Arrays.asList(this.httpClient.send(Translation[].class, "get", "/translate", data));
