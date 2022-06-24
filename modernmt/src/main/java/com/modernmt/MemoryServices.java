@@ -23,6 +23,10 @@ public class MemoryServices {
     }
 
     public Memory get(long id) throws IOException {
+        return this.get(Long.toString(id));
+    }
+
+    public Memory get(String id) throws IOException {
         return this.httpClient.send(Memory.class, "get", "/memories/" + id, null);
     }
 
@@ -51,6 +55,14 @@ public class MemoryServices {
     }
 
     public Memory edit(long id, String name, String description) throws IOException {
+        return this.edit(Long.toString(id), name, description);
+    }
+
+    public Memory edit(String id, String name) throws IOException {
+        return this.edit(id, name, null);
+    }
+
+    public Memory edit(String id, String name, String description) throws IOException {
         Map<String, Object> data = new HashMap<>();
 
         if (name != null)
@@ -62,6 +74,10 @@ public class MemoryServices {
     }
 
     public Memory delete(long id) throws IOException {
+        return this.delete(Long.toString(id));
+    }
+
+    public Memory delete(String id) throws IOException {
         return this.httpClient.send(Memory.class, "delete", "/memories/" + id, null);
     }
 
@@ -71,6 +87,16 @@ public class MemoryServices {
     }
 
     public ImportJob add(long id, String source, String target, String sentence, String translation,
+                         String tuid) throws IOException {
+        return this.add(Long.toString(id), source, target, sentence, translation, tuid);
+    }
+
+    public ImportJob add(String id, String source, String target, String sentence,
+                         String translation) throws IOException {
+        return this.add(id, source, target, sentence, translation, null);
+    }
+
+    public ImportJob add(String id, String source, String target, String sentence, String translation,
                          String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("source", source);
@@ -86,6 +112,11 @@ public class MemoryServices {
 
     public ImportJob replace(long id, String tuid, String source, String target, String sentence,
                              String translation) throws IOException {
+        return this.replace(Long.toString(id), tuid, source, target, sentence, translation);
+    }
+
+    public ImportJob replace(String id, String tuid, String source, String target, String sentence,
+                             String translation) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("tuid", tuid);
         data.put("source", source);
@@ -97,18 +128,34 @@ public class MemoryServices {
     }
 
     public ImportJob importTmx(long id, String tmx) throws IOException {
-        return this.importTmx(id, new File(tmx), null);
-    }
-
-    public ImportJob importTmx(long id, String tmx, String compression) throws IOException {
-        return this.importTmx(id, new File(tmx), compression);
+        return this.importTmx(id, tmx, null);
     }
 
     public ImportJob importTmx(long id, File tmx) throws IOException {
         return this.importTmx(id, tmx, null);
     }
 
+    public ImportJob importTmx(long id, String tmx, String compression) throws IOException {
+        return this.importTmx(id, new File(tmx), compression);
+    }
+
     public ImportJob importTmx(long id, File tmx, String compression) throws IOException {
+        return this.importTmx(Long.toString(id), tmx, compression);
+    }
+
+    public ImportJob importTmx(String id, String tmx) throws IOException {
+        return this.importTmx(id, new File(tmx), null);
+    }
+
+    public ImportJob importTmx(String id, File tmx) throws IOException {
+        return this.importTmx(id, tmx, null);
+    }
+
+    public ImportJob importTmx(String id, String tmx, String compression) throws IOException {
+        return this.importTmx(id, new File(tmx), compression);
+    }
+
+    public ImportJob importTmx(String id, File tmx, String compression) throws IOException {
         Map<String, Object> data = new HashMap<>();
         if (compression != null)
             data.put("compression", compression);
