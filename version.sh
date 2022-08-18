@@ -11,7 +11,7 @@ prop_match="VERSION_NAME="
 prop_ver="VERSION_NAME=${VERSION}"
 sed -i -E "/$prop_match/s/.*/$prop_ver/" gradle.properties
 
-src_file="modernmt/src/main/java/com/modernmt/ModernMT.java"
+src_file="src/main/java/com/modernmt/ModernMT.java"
 
 header_match="        this\(apiKey, platform, "
 header_ver="        this\(apiKey, platform, \"${VERSION}\"\);"
