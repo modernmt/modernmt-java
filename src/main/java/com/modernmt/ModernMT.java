@@ -40,17 +40,25 @@ public class ModernMT {
     }
 
     public DetectedLanguage detectLanguage(String q) throws IOException {
-        return this.detectLanguage(q, null);
+        return this.detectLanguage(Collections.singletonList(q)).get(0);
     }
 
     public DetectedLanguage detectLanguage(String q, String format) throws IOException {
+        return this.detectLanguage(Collections.singletonList(q), format).get(0);
+    }
+
+    public List<DetectedLanguage> detectLanguage(List<String> q) throws IOException {
+        return this.detectLanguage(q, null);
+    }
+
+    public List<DetectedLanguage> detectLanguage(List<String> q, String format) throws IOException {
         Map<String, Object> data = new HashMap<>();
 
         data.put("q", q);
         if (format != null)
             data.put("format", format);
 
-        return this.httpClient.send(DetectedLanguage.class, "get", "/translate/detect", data);
+        return Arrays.asList(this.httpClient.send(DetectedLanguage[].class, "get", "/translate/detect", data));
     }
 
     // single sentence
