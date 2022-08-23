@@ -1,5 +1,6 @@
 package com.modernmt;
 
+import com.modernmt.model.DetectedLanguage;
 import com.modernmt.model.TranslateOptions;
 import com.modernmt.model.Translation;
 
@@ -36,6 +37,20 @@ public class ModernMT {
 
     public List<String> listSupportedLanguages() throws IOException {
         return Arrays.asList(this.httpClient.send(String[].class, "get", "/translate/languages", null));
+    }
+
+    public DetectedLanguage detectLanguage(String q) throws IOException {
+        return this.detectLanguage(q, null);
+    }
+
+    public DetectedLanguage detectLanguage(String q, String format) throws IOException {
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("q", q);
+        if (format != null)
+            data.put("format", format);
+
+        return this.httpClient.send(DetectedLanguage.class, "get", "/translate/detect", data);
     }
 
     // single sentence
