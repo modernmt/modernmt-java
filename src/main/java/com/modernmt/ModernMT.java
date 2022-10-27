@@ -67,6 +67,10 @@ public class ModernMT {
         return this.translate(source, target, Collections.singletonList(q)).get(0);
     }
 
+    public Translation translate(String source, String target, String q, TranslateOptions options) throws IOException {
+        return this.translate(source, target, Collections.singletonList(q), options).get(0);
+    }
+
     public Translation translate(String source, String target, String q, long[] hints) throws IOException {
         return this.translate(source, target, Collections.singletonList(q), hints).get(0);
     }
@@ -99,6 +103,10 @@ public class ModernMT {
 
     public List<Translation> translate(String source, String target, List<String> q) throws IOException {
         return this.translate(source, target, q, (List<String>) null);
+    }
+
+    public List<Translation> translate(String source, String target, List<String> q, TranslateOptions options) throws IOException {
+        return this.translate(source, target, q, (List<String>) null, null, options);
     }
 
     public List<Translation> translate(String source, String target, List<String> q, long[] hints) throws IOException {
