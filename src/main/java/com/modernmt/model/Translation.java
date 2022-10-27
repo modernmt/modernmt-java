@@ -7,6 +7,7 @@ public class Translation extends Model {
     private int characters;
     private int billedCharacters;
     private String detectedLanguage;
+    private String[] altTranslations;
 
     public String getTranslation() {
         return translation;
@@ -28,4 +29,7 @@ public class Translation extends Model {
         return detectedLanguage;
     }
 
+    public String[] getAltTranslations() {
+        return altTranslations;
+    }
 }
