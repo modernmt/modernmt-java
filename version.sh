@@ -13,6 +13,6 @@ sed -i -E "/$prop_match/s/.*/$prop_ver/" gradle.properties
 
 src_file="src/main/java/com/modernmt/ModernMT.java"
 
-header_match="        this\(apiKey, platform, "
-header_ver="        this\(apiKey, platform, \"${VERSION}\"\);"
+header_match="    private static final String PLATFORM_VERSION = "
+header_ver="    private static final String PLATFORM_VERSION = \"${VERSION}\";"
 sed -i -E "/$header_match/s/.*/$header_ver/" $src_file

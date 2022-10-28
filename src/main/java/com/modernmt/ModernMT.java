@@ -12,27 +12,42 @@ import java.util.stream.LongStream;
 
 public class ModernMT {
 
+    private static final String PLATFORM = "modernmt-java";
+    private static final String PLATFORM_VERSION = "1.0.6";
+
     private final HttpClient httpClient;
     public final MemoryServices memories;
 
-    public ModernMT(String apiKey, String platform, String platformVersion) {
+    public ModernMT(String apiKey, String platform, String platformVersion, long apiClient) {
         Map<String, String> headers = new HashMap<>();
 
         headers.put("MMT-ApiKey", apiKey);
         headers.put("MMT-Platform", platform);
         headers.put("MMT-PlatformVersion", platformVersion);
 
+        if (apiClient != 0)
+            headers.put("MMT-ApiClient", String.valueOf(apiClient));
+
         this.httpClient = new HttpClient("https://api.modernmt.com", headers);
 
         this.memories = new MemoryServices(this.httpClient);
     }
 
+    public ModernMT(String apiKey, String platform, String platformVersion) {
+        this(apiKey, platform, platformVersion, 0);
+    }
+
+    // useless but kept for backward compatibility
     public ModernMT(String apiKey, String platform) {
-        this(apiKey, platform, "1.0.6");
+        this(apiKey, platform, PLATFORM_VERSION, 0);
     }
 
     public ModernMT(String apiKey) {
-        this(apiKey, "modernmt-java");
+        this(apiKey, PLATFORM);
+    }
+
+    public ModernMT(String apiKey, long apiClient) {
+        this(apiKey, PLATFORM, PLATFORM_VERSION, apiClient);
     }
 
     public List<String> listSupportedLanguages() throws IOException {
