@@ -7,6 +7,7 @@ public class TranslateOptions extends Model {
     private Boolean multiline;
     private Integer timeout;
     private String format;
+    private Integer altTranslations;
 
     public String getPriority() {
         return priority;
@@ -46,5 +47,13 @@ public class TranslateOptions extends Model {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public Integer getAltTranslations() {
+        return altTranslations;
+    }
+
+    public void setAltTranslations(Integer altTranslations) {
+        this.altTranslations = altTranslations;
     }
 }

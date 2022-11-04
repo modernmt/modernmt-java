@@ -170,6 +170,7 @@ public class ModernMT {
             Boolean multiline = options.getMultiline();
             Integer timeout = options.getTimeout();
             String format = options.getFormat();
+            Integer altTranslations = options.getAltTranslations();
 
             if (priority != null)
                 data.put("priority", priority);
@@ -181,6 +182,8 @@ public class ModernMT {
                 data.put("timeout", timeout);
             if (format != null)
                 data.put("format", format);
+            if (altTranslations != null)
+                data.put("alt_translations", altTranslations);
         }
 
         return Arrays.asList(this.httpClient.send(Translation[].class, "get", "/translate", data));
