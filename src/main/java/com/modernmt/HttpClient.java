@@ -89,7 +89,7 @@ class HttpClient {
 
         int status = json.get("status").getAsInt();
         if (status >= 300 || status < 200) {
-            JsonObject error = json.get("error").getAsJsonObject();
+            JsonObject error = json.getAsJsonObject("error");
             throw new ModernMTException(status, error.get("type").getAsString(), error.get("message").getAsString());
         }
 
