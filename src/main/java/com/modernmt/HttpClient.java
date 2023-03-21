@@ -35,17 +35,27 @@ class HttpClient {
     }
 
     <T> T send(Class<T> cls, String method, String path, Map<String, Object> data) throws IOException {
-        return this.send(cls, method, path, data, null);
+        return this.send(cls, method, path, data, null, null);
+    }
+
+    <T> T send(Class<T> cls, String method, String path,
+               Map<String, Object> data, Map<String, File> files) throws IOException {
+        return this.send(cls, method, path, data, files, null);
     }
 
     <T> T send(Class<T> cls, String method, String path, Map<String, Object> data,
-               Map<String, File> files) throws IOException {
+               Map<String, File> files, Map<String, String> headers) throws IOException {
         Request request = Request.post(this.baseUrl + path)
                 .version(HttpVersion.HTTP_1_1)
                 .setHeader("X-HTTP-Method-Override", method);
 
         if (this.headers != null) {
             for (Map.Entry<String, String> el : this.headers.entrySet())
+                request.setHeader(el.getKey(), el.getValue());
+        }
+
+        if (headers != null) {
+            for (Map.Entry<String, String> el : headers.entrySet())
                 request.setHeader(el.getKey(), el.getValue());
         }
 
