@@ -44,8 +44,10 @@ class HttpClient {
                 .version(HttpVersion.HTTP_1_1)
                 .setHeader("X-HTTP-Method-Override", method);
 
-        for (Map.Entry<String, String> el : this.headers.entrySet())
-            request.setHeader(el.getKey(), el.getValue());
+        if (this.headers != null) {
+            for (Map.Entry<String, String> el : this.headers.entrySet())
+                request.setHeader(el.getKey(), el.getValue());
+        }
 
         if (files != null) {
             MultipartEntityBuilder multipartBuilder = MultipartEntityBuilder.create();
