@@ -213,7 +213,7 @@ public class ModernMT {
         return this.getContextVector(source, Collections.singletonList(targets), text, hints, limit).get(targets);
     }
 
-    // multiple targets
+    // getContextVector multiple targets
 
     public Map<String, String> getContextVector(String source, List<String> targets, String text) throws IOException {
         return this.getContextVector(source, targets, text, (List<String>) null);
@@ -256,14 +256,15 @@ public class ModernMT {
         return (Map<String, String>) result.get("vectors");
     }
 
-    // single target with path
+    // getContextVectorFromFile single target with path
 
     public String getContextVectorFromFile(String source, String targets, String file) throws IOException {
         return this.getContextVectorFromFile(source,
                 Collections.singletonList(targets), new File(file), (List<String>) null).get(targets);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file, long[] hints) throws IOException {
+    public String getContextVectorFromFile(String source, String targets, String file,
+                                           long[] hints) throws IOException {
         return this.getContextVectorFromFile(source,
                 Collections.singletonList(targets), new File(file), hints, null, null).get(targets);
     }
@@ -280,7 +281,8 @@ public class ModernMT {
                 Collections.singletonList(targets), new File(file), hints, limit, compression).get(targets);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file, List<String> hints) throws IOException {
+    public String getContextVectorFromFile(String source, String targets, String file,
+                                           List<String> hints) throws IOException {
         return this.getContextVectorFromFile(source,
                 Collections.singletonList(targets), new File(file), hints, null, null).get(targets);
     }
@@ -291,14 +293,20 @@ public class ModernMT {
                 Collections.singletonList(targets), new File(file), hints, limit, null).get(targets);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file, List<String> hints, Integer limit,
-                                           String compression) throws IOException {
+    public String getContextVectorFromFile(String source, String targets, String file, List<String> hints,
+                                           Integer limit, String compression) throws IOException {
         return this.getContextVectorFromFile(source,
                 Collections.singletonList(targets), new File(file), hints, limit, compression).get(targets);
     }
 
+    public String getContextVectorFromFile(String source, String targets, String file,
+                                           String compression) throws IOException {
+        return this.getContextVectorFromFile(source,
+                Collections.singletonList(targets), new File(file), (List<String>) null, null, compression)
+                .get(targets);
+    }
 
-    // single target
+    // getContextVectorFromFile single target
 
     public String getContextVectorFromFile(String source, String targets, File file) throws IOException {
         return this.getContextVectorFromFile(source,
@@ -322,7 +330,8 @@ public class ModernMT {
                 Collections.singletonList(targets), file, hints, limit, compression).get(targets);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file, List<String> hints) throws IOException {
+    public String getContextVectorFromFile(String source, String targets, File file,
+                                           List<String> hints) throws IOException {
         return this.getContextVectorFromFile(source,
                 Collections.singletonList(targets), file, hints, null).get(targets);
     }
@@ -339,7 +348,13 @@ public class ModernMT {
                 Collections.singletonList(targets), file, hints, limit, compression).get(targets);
     }
 
-    // multiple targets with path
+    public String getContextVectorFromFile(String source, String targets, File file,
+                                           String compression) throws IOException {
+        return this.getContextVectorFromFile(source,
+                Collections.singletonList(targets), file, (List<String>) null, null, compression).get(targets);
+    }
+
+    // getContextVectorFromFile multiple targets with path
 
     public Map<String, String> getContextVectorFromFile(String source, List<String> targets,
                                                         String file) throws IOException {
@@ -366,17 +381,23 @@ public class ModernMT {
         return this.getContextVectorFromFile(source, targets, new File(file), hints, null);
     }
 
-    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, String file, List<String> hints,
-                                                        Integer limit) throws IOException {
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, String file,
+                                                        List<String> hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source, targets, new File(file), hints, limit, null);
     }
 
-    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, String file, List<String> hints,
-                                                        Integer limit, String compression) throws IOException {
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, String file,
+                                                        List<String> hints, Integer limit,
+                                                        String compression) throws IOException {
         return this.getContextVectorFromFile(source, targets, new File(file), hints, limit, compression);
     }
 
-    // multiple targets
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, String file,
+                                                        String compression) throws IOException {
+        return this.getContextVectorFromFile(source, targets, new File(file), (List<String>) null, null, compression);
+    }
+
+    // getContextVectorFromFile multiple targets
 
     public Map<String, String> getContextVectorFromFile(String source, List<String> targets,
                                                         File file) throws IOException {
@@ -407,14 +428,20 @@ public class ModernMT {
         return this.getContextVectorFromFile(source, targets, file, hints, null);
     }
 
-    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, File file, List<String> hints,
-                                                        Integer limit) throws IOException {
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, File file,
+                                                        List<String> hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source, targets, file, hints, limit, null);
     }
 
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, File file,
+                                                        String compression) throws IOException {
+        return this.getContextVectorFromFile(source, targets, file, (List<String>) null, null, compression);
+    }
+
     @SuppressWarnings("unchecked")
-    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, File file, List<String> hints,
-                                                        Integer limit, String compression) throws IOException {
+    public Map<String, String> getContextVectorFromFile(String source, List<String> targets, File file,
+                                                        List<String> hints, Integer limit,
+                                                        String compression) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("source", source);
         data.put("targets", targets);
