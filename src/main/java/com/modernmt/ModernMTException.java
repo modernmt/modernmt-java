@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class ModernMTException extends IOException {
 
+    // keep public for backward compatibility
     public final int status;
     public final String type;
 
@@ -11,6 +12,14 @@ public class ModernMTException extends IOException {
         super("[" + type + "] " + message);
         this.status = status;
         this.type = type;
+    }
+
+    public int getStatusCode() {
+        return status;
+    }
+
+    public String getType() {
+        return type;
     }
 
 }
