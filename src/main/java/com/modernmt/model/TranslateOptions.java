@@ -9,6 +9,9 @@ public class TranslateOptions extends Model {
     private String format;
     private Integer altTranslations;
 
+    private String idempotencyKey;
+    private Object metadata;
+
     public String getPriority() {
         return priority;
     }
@@ -55,5 +58,22 @@ public class TranslateOptions extends Model {
 
     public void setAltTranslations(Integer altTranslations) {
         this.altTranslations = altTranslations;
+    }
+
+    public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T getMetadata() {
+        return (T) metadata;
+    }
+
+    public void setMetadata(Object metadata) {
+        this.metadata = metadata;
     }
 }

@@ -8,10 +8,17 @@ public class ModernMTException extends IOException {
     public final int status;
     public final String type;
 
-    public ModernMTException( int status, String type, String message) {
+    private final Object metadata;
+
+    public ModernMTException(int status, String type, String message, Object metadata) {
         super("[" + type + "] " + message);
         this.status = status;
         this.type = type;
+        this.metadata = metadata;
+    }
+
+    public ModernMTException(int status, String type, String message) {
+        this(status, type, message, null);
     }
 
     public int getStatusCode() {
@@ -22,4 +29,8 @@ public class ModernMTException extends IOException {
         return type;
     }
 
+    @SuppressWarnings("unchecked")
+    public <T> T getMetadata() {
+        return (T) metadata;
+    }
 }
