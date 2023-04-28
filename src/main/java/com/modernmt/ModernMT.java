@@ -336,8 +336,6 @@ public class ModernMT {
                 data.put("format", format);
             if (altTranslations != null)
                 data.put("alt_translations", altTranslations);
-            if (altTranslations != null)
-                data.put("alt_translations", altTranslations);
             if (metadata != null)
                 data.put("metadata", metadata);
 
