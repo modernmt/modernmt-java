@@ -31,7 +31,7 @@ public class ModernMT {
     public final MemoryServices memories;
 
     private JWTVerifier jwtVerifier;
-    private long batchPublicKeyTimestamp;
+    private long batchPublicKeyTimestampMs;
 
     private final Gson gson;
 
@@ -360,7 +360,7 @@ public class ModernMT {
         if (this.jwtVerifier == null)
             this.refreshJWTVerifier();
 
-        if (System.currentTimeMillis() - this.batchPublicKeyTimestamp > 1000 * 60 * 60) {   // key is older than 1 hour
+        if (System.currentTimeMillis() - this.batchPublicKeyTimestampMs > 1000 * 3600) {   // key is older than 1 hour
             try {
                 this.refreshJWTVerifier();
             } catch (Exception e) {
@@ -435,7 +435,7 @@ public class ModernMT {
         Algorithm algorithm = Algorithm.RSA256(key, null);
 
         this.jwtVerifier = JWT.require(algorithm).build();
-        this.batchPublicKeyTimestamp = System.currentTimeMillis();
+        this.batchPublicKeyTimestampMs = System.currentTimeMillis();
     }
 
 
