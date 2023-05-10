@@ -401,11 +401,11 @@ public class ModernMT {
                     metadata);
         }
 
-        JsonElement data = resultJson.get("data");
-        if (data.isJsonArray())
-            return new BatchTranslation(this.gson.fromJson(data, Translation[].class), metadata);
+        JsonElement dataJson = resultJson.get("data");
+        if (dataJson.isJsonArray())
+            return new BatchTranslation(this.gson.fromJson(dataJson, Translation[].class), metadata);
         else
-            return new BatchTranslation(this.gson.fromJson(data, Translation.class), metadata);
+            return new BatchTranslation(this.gson.fromJson(dataJson, Translation.class), metadata);
     }
 
     private void refreshJWTVerifier() throws IOException {
