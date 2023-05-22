@@ -7,7 +7,7 @@ public class User extends Model {
     private String email;
     private String registrationDate;
     private String country;
-    private String isBusiness;
+    private int isBusiness;
     private String status;
     private BillingPeriod billingPeriod;
 
@@ -31,7 +31,7 @@ public class User extends Model {
         return country;
     }
 
-    public String getIsBusiness() {
+    public int getIsBusiness() {
         return isBusiness;
     }
 
