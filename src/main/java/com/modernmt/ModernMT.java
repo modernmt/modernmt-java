@@ -5,10 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.JWTVerifier;
 import com.google.gson.*;
-import com.modernmt.model.BatchTranslation;
-import com.modernmt.model.DetectedLanguage;
-import com.modernmt.model.TranslateOptions;
-import com.modernmt.model.Translation;
+import com.modernmt.model.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -708,6 +705,10 @@ public class ModernMT {
 
         Map<?, ?> result = this.httpClient.send(Map.class, "get", "/context-vector", data, files);
         return (Map<String, String>) result.get("vectors");
+    }
+
+    public User me() throws IOException {
+        return this.httpClient.send(User.class, "get", "/users/me", null);
     }
 
 }
