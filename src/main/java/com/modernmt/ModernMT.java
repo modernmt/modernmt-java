@@ -441,26 +441,26 @@ public class ModernMT {
 
     // getContextVector single target
 
-    public String getContextVector(String source, String targets, String text) throws IOException {
-        return this.getContextVector(source, Collections.singletonList(targets), text).get(targets);
+    public String getContextVector(String source, String target, String text) throws IOException {
+        return this.getContextVector(source, Collections.singletonList(target), text).get(target);
     }
 
-    public String getContextVector(String source, String targets, String text, long[] hints) throws IOException {
-        return this.getContextVector(source, Collections.singletonList(targets), text, hints).get(targets);
+    public String getContextVector(String source, String target, String text, long[] hints) throws IOException {
+        return this.getContextVector(source, Collections.singletonList(target), text, hints).get(target);
     }
 
-    public String getContextVector(String source, String targets, String text, long[] hints,
+    public String getContextVector(String source, String target, String text, long[] hints,
                                    Integer limit) throws IOException {
-        return this.getContextVector(source, Collections.singletonList(targets), text, hints, limit).get(targets);
+        return this.getContextVector(source, Collections.singletonList(target), text, hints, limit).get(target);
     }
 
-    public String getContextVector(String source, String targets, String text, List<String> hints) throws IOException {
-        return this.getContextVector(source, Collections.singletonList(targets), text, hints).get(targets);
+    public String getContextVector(String source, String target, String text, List<String> hints) throws IOException {
+        return this.getContextVector(source, Collections.singletonList(target), text, hints).get(target);
     }
 
-    public String getContextVector(String source, String targets, String text, List<String> hints,
+    public String getContextVector(String source, String target, String text, List<String> hints,
                                    Integer limit) throws IOException {
-        return this.getContextVector(source, Collections.singletonList(targets), text, hints, limit).get(targets);
+        return this.getContextVector(source, Collections.singletonList(target), text, hints, limit).get(target);
     }
 
     // getContextVector multiple targets
@@ -508,100 +508,100 @@ public class ModernMT {
 
     // getContextVectorFromFile single target with path
 
-    public String getContextVectorFromFile(String source, String targets, String file) throws IOException {
+    public String getContextVectorFromFile(String source, String target, String file) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), (List<String>) null).get(targets);
+                Collections.singletonList(target), new File(file), (List<String>) null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file,
+    public String getContextVectorFromFile(String source, String target, String file,
                                            long[] hints) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, null, null).get(targets);
+                Collections.singletonList(target), new File(file), hints, null, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file,
+    public String getContextVectorFromFile(String source, String target, String file,
                                            long[] hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, limit, null).get(targets);
+                Collections.singletonList(target), new File(file), hints, limit, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file, long[] hints, Integer limit,
+    public String getContextVectorFromFile(String source, String target, String file, long[] hints, Integer limit,
                                            String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, limit, compression).get(targets);
+                Collections.singletonList(target), new File(file), hints, limit, compression).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file,
+    public String getContextVectorFromFile(String source, String target, String file,
                                            List<String> hints) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, null, null).get(targets);
+                Collections.singletonList(target), new File(file), hints, null, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file,
+    public String getContextVectorFromFile(String source, String target, String file,
                                            List<String> hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, limit, null).get(targets);
+                Collections.singletonList(target), new File(file), hints, limit, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file, List<String> hints,
+    public String getContextVectorFromFile(String source, String target, String file, List<String> hints,
                                            Integer limit, String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), hints, limit, compression).get(targets);
+                Collections.singletonList(target), new File(file), hints, limit, compression).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, String file,
+    public String getContextVectorFromFile(String source, String target, String file,
                                            String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), new File(file), (List<String>) null, null, compression)
-                .get(targets);
+                Collections.singletonList(target), new File(file), (List<String>) null, null, compression)
+                .get(target);
     }
 
     // getContextVectorFromFile single target
 
-    public String getContextVectorFromFile(String source, String targets, File file) throws IOException {
+    public String getContextVectorFromFile(String source, String target, File file) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, (List<String>) null).get(targets);
+                Collections.singletonList(target), file, (List<String>) null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file, long[] hints) throws IOException {
+    public String getContextVectorFromFile(String source, String target, File file, long[] hints) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, null).get(targets);
+                Collections.singletonList(target), file, hints, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file,
+    public String getContextVectorFromFile(String source, String target, File file,
                                            long[] hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, limit, null).get(targets);
+                Collections.singletonList(target), file, hints, limit, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file, long[] hints, Integer limit,
+    public String getContextVectorFromFile(String source, String target, File file, long[] hints, Integer limit,
                                            String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, limit, compression).get(targets);
+                Collections.singletonList(target), file, hints, limit, compression).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file,
+    public String getContextVectorFromFile(String source, String target, File file,
                                            List<String> hints) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, null).get(targets);
+                Collections.singletonList(target), file, hints, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file,
+    public String getContextVectorFromFile(String source, String target, File file,
                                            List<String> hints, Integer limit) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, limit, null).get(targets);
+                Collections.singletonList(target), file, hints, limit, null).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file, List<String> hints, Integer limit,
+    public String getContextVectorFromFile(String source, String target, File file, List<String> hints, Integer limit,
                                            String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, hints, limit, compression).get(targets);
+                Collections.singletonList(target), file, hints, limit, compression).get(target);
     }
 
-    public String getContextVectorFromFile(String source, String targets, File file,
+    public String getContextVectorFromFile(String source, String target, File file,
                                            String compression) throws IOException {
         return this.getContextVectorFromFile(source,
-                Collections.singletonList(targets), file, (List<String>) null, null, compression).get(targets);
+                Collections.singletonList(target), file, (List<String>) null, null, compression).get(target);
     }
 
     // getContextVectorFromFile multiple targets with path
