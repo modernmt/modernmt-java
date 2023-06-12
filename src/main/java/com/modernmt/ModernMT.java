@@ -711,20 +711,4 @@ public class ModernMT {
         return this.httpClient.send(User.class, "get", "/users/me", null);
     }
 
-    public QualityEstimation qe(String source, String target, String sentence, String translation) throws IOException {
-        return this.qe(source, target,
-                Collections.singletonList(sentence), Collections.singletonList(translation)).get(0);
-    }
-
-    public List<QualityEstimation> qe(String source, String target,
-                      List<String> sentences, List<String> translations) throws IOException {
-        Map<String, Object> data = new HashMap<>();
-        data.put("source", source);
-        data.put("target", target);
-        data.put("sentence", sentences);
-        data.put("translation", translations);
-
-        return Arrays.asList(this.httpClient.send(QualityEstimation[].class, "get", "/qe", data));
-    }
-
 }
