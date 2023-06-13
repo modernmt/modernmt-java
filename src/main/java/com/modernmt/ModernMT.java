@@ -22,7 +22,7 @@ import java.util.stream.LongStream;
 public class ModernMT {
 
     private static final String PLATFORM = "modernmt-java";
-    private static final String PLATFORM_VERSION = "1.2.0";
+    private static final String PLATFORM_VERSION = "1.3.0";
 
     private final HttpClient httpClient;
     public final MemoryServices memories;
