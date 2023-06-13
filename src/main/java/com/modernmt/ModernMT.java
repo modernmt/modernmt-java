@@ -189,6 +189,7 @@ public class ModernMT {
             Integer timeout = options.getTimeout();
             String format = options.getFormat();
             Integer altTranslations = options.getAltTranslations();
+            String session = options.getSession();
 
             if (priority != null)
                 data.put("priority", priority);
@@ -202,6 +203,8 @@ public class ModernMT {
                 data.put("format", format);
             if (altTranslations != null)
                 data.put("alt_translations", altTranslations);
+            if (session != null)
+                data.put("session", session);
         }
 
         return Arrays.asList(this.httpClient.send(Translation[].class, "get", "/translate", data));
@@ -324,6 +327,7 @@ public class ModernMT {
             String format = options.getFormat();
             Integer altTranslations = options.getAltTranslations();
             Object metadata = options.getMetadata();
+            String session = options.getSession();
 
             if (projectId != null)
                 data.put("project_id", projectId);
@@ -335,6 +339,8 @@ public class ModernMT {
                 data.put("alt_translations", altTranslations);
             if (metadata != null)
                 data.put("metadata", metadata);
+            if (session != null)
+                data.put("session", session);
 
             String idempotencyKey = options.getIdempotencyKey();
 

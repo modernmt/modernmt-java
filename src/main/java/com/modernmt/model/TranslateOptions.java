@@ -8,6 +8,7 @@ public class TranslateOptions extends Model {
     private Integer timeout;
     private String format;
     private Integer altTranslations;
+    private String session;
 
     private String idempotencyKey;
     private Object metadata;
@@ -58,6 +59,14 @@ public class TranslateOptions extends Model {
 
     public void setAltTranslations(Integer altTranslations) {
         this.altTranslations = altTranslations;
+    }
+
+    public String getSession() {
+        return session;
+    }
+
+    public void setSession(String session) {
+        this.session = session;
     }
 
     public String getIdempotencyKey() {
