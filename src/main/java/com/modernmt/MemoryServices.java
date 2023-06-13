@@ -83,31 +83,21 @@ public class MemoryServices {
 
     public ImportJob add(long id, String source, String target, String sentence,
                          String translation) throws IOException {
-        return this.add(Long.toString(id), source, target, sentence, translation, null, null);
+        return this.add(id, source, target, sentence, translation, null);
     }
 
     public ImportJob add(long id, String source, String target, String sentence, String translation,
                          String tuid) throws IOException {
-        return this.add(Long.toString(id), source, target, sentence, translation, tuid, null);
-    }
-
-    public ImportJob add(long id, String source, String target, String sentence, String translation,
-                         String tuid, String session) throws IOException {
-        return this.add(Long.toString(id), source, target, sentence, translation, tuid, session);
+        return this.add(Long.toString(id), source, target, sentence, translation, tuid);
     }
 
     public ImportJob add(String id, String source, String target, String sentence,
                          String translation) throws IOException {
-        return this.add(id, source, target, sentence, translation, null, null);
-    }
-
-    public ImportJob add(String id, String source, String target, String sentence,
-                         String translation, String tuid) throws IOException {
-        return this.add(id, source, target, sentence, translation, tuid, null);
+        return this.add(id, source, target, sentence, translation, null);
     }
 
     public ImportJob add(String id, String source, String target, String sentence, String translation,
-                         String tuid, String session) throws IOException {
+                         String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("source", source);
         data.put("target", target);
@@ -117,38 +107,22 @@ public class MemoryServices {
         if (tuid != null)
             data.put("tuid", tuid);
 
-        if (session != null)
-            data.put("session", session);
-
         return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/content", data);
     }
 
     public ImportJob replace(long id, String tuid, String source, String target, String sentence,
                              String translation) throws IOException {
-        return this.replace(Long.toString(id), tuid, source, target, sentence, translation, null);
-    }
-
-    public ImportJob replace(long id, String tuid, String source, String target, String sentence,
-                             String translation, String session) throws IOException {
-        return this.replace(Long.toString(id), tuid, source, target, sentence, translation, session);
+        return this.replace(Long.toString(id), tuid, source, target, sentence, translation);
     }
 
     public ImportJob replace(String id, String tuid, String source, String target, String sentence,
                              String translation) throws IOException {
-        return this.replace(id, tuid, source, target, sentence, translation, null);
-    }
-
-    public ImportJob replace(String id, String tuid, String source, String target, String sentence,
-                             String translation, String session) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("tuid", tuid);
         data.put("source", source);
         data.put("target", target);
         data.put("sentence", sentence);
         data.put("translation", translation);
-
-        if (session != null)
-            data.put("session", session);
 
         return this.httpClient.send(ImportJob.class, "put", "/memories/" + id + "/content", data);
     }
