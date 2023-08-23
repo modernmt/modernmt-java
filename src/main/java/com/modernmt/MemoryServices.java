@@ -194,66 +194,66 @@ public class MemoryServices {
     }
 
     public ImportJob addToGlossary(long id, List<GlossaryTerm> glossaryTerms,
-                                   String glossaryType, String tuid) throws IOException {
-        return this.addToGlossary(Long.toString(id), glossaryTerms, glossaryType, tuid);
+                                   String type, String tuid) throws IOException {
+        return this.addToGlossary(Long.toString(id), glossaryTerms, type, tuid);
     }
     public ImportJob addToGlossary(String id, List<GlossaryTerm> glossaryTerms,
-                                   String glossaryType, String tuid) throws IOException {
+                                   String type, String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("terms", glossaryTerms);
-        data.put("glossary_type", glossaryType);
+        data.put("type", type);
         data.put("tuid", tuid);
 
         return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/glossary", data);
     }
 
     public ImportJob replaceInGlossary(long id, List<GlossaryTerm> glossaryTerms,
-                                       String glossaryType, String tuid) throws IOException {
-        return this.replaceInGlossary(Long.toString(id), glossaryTerms, glossaryType, tuid);
+                                       String type, String tuid) throws IOException {
+        return this.replaceInGlossary(Long.toString(id), glossaryTerms, type, tuid);
     }
     public ImportJob replaceInGlossary(String id, List<GlossaryTerm> glossaryTerms,
-                                       String glossaryType, String tuid) throws IOException {
+                                       String type, String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
         data.put("terms", glossaryTerms);
-        data.put("glossary_type", glossaryType);
+        data.put("type", type);
         data.put("tuid", tuid);
 
         return this.httpClient.send(ImportJob.class, "put", "/memories/" + id + "/glossary", data);
     }
 
-    public ImportJob importGlossary(long id, String csv, String glossaryType) throws IOException {
-        return this.importGlossary(Long.toString(id), new File(csv), glossaryType, null);
+    public ImportJob importGlossary(long id, String csv, String type) throws IOException {
+        return this.importGlossary(Long.toString(id), new File(csv), type, null);
     }
 
-    public ImportJob importGlossary(long id, File csv, String glossaryType) throws IOException {
-        return this.importGlossary(Long.toString(id), csv, glossaryType, null);
+    public ImportJob importGlossary(long id, File csv, String type) throws IOException {
+        return this.importGlossary(Long.toString(id), csv, type, null);
     }
 
-    public ImportJob importGlossary(long id, String csv, String glossaryType, String compression) throws IOException {
-        return this.importGlossary(Long.toString(id), new File(csv), glossaryType, compression);
+    public ImportJob importGlossary(long id, String csv, String type, String compression) throws IOException {
+        return this.importGlossary(Long.toString(id), new File(csv), type, compression);
     }
 
-    public ImportJob importGlossary(long id, File csv, String glossaryType, String compression) throws IOException {
-        return this.importGlossary(Long.toString(id), csv, glossaryType, compression);
+    public ImportJob importGlossary(long id, File csv, String type, String compression) throws IOException {
+        return this.importGlossary(Long.toString(id), csv, type, compression);
     }
 
-    public ImportJob importGlossary(String id, String csv, String glossaryType) throws IOException {
-        return this.importGlossary(id, new File(csv), glossaryType, null);
+    public ImportJob importGlossary(String id, String csv, String type) throws IOException {
+        return this.importGlossary(id, new File(csv), type, null);
     }
 
-    public ImportJob importGlossary(String id, File csv, String glossaryType) throws IOException {
-        return this.importGlossary(id, csv, glossaryType, null);
+    public ImportJob importGlossary(String id, File csv, String type) throws IOException {
+        return this.importGlossary(id, csv, type, null);
     }
 
-    public ImportJob importGlossary(String id, String csv, String glossaryType,
+    public ImportJob importGlossary(String id, String csv, String type,
                                     String compression) throws IOException {
-        return this.importGlossary(id, new File(csv), glossaryType, compression);
+        return this.importGlossary(id, new File(csv), type, compression);
     }
 
-    public ImportJob importGlossary(String id, File csv, String glossaryType,
+    public ImportJob importGlossary(String id, File csv, String type,
                                     String compression) throws IOException {
         Map<String, Object> data = new HashMap<>();
-        data.put("glossary_type", glossaryType);
+        data.put("type", type);
 
         if (compression != null)
             data.put("compression", compression);
