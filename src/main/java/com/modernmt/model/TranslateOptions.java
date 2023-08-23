@@ -9,6 +9,8 @@ public class TranslateOptions extends Model {
     private String format;
     private Integer altTranslations;
     private String session;
+    private String glossaries;
+    private Boolean ignoreGlossaryCase;
 
     private String idempotencyKey;
     private Object metadata;
@@ -67,6 +69,22 @@ public class TranslateOptions extends Model {
 
     public void setSession(String session) {
         this.session = session;
+    }
+
+    public String getGlossaries() {
+        return glossaries;
+    }
+
+    public void setGlossaries(String glossaries) {
+        this.glossaries = glossaries;
+    }
+
+    public Boolean getIgnoreGlossaryCase() {
+        return ignoreGlossaryCase;
+    }
+
+    public void setIgnoreGlossaryCase(Boolean ignoreGlossaryCase) {
+        this.ignoreGlossaryCase = ignoreGlossaryCase;
     }
 
     public String getIdempotencyKey() {

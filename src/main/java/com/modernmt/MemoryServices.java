@@ -1,5 +1,6 @@
 package com.modernmt;
 
+import com.modernmt.model.GlossaryTerm;
 import com.modernmt.model.ImportJob;
 import com.modernmt.model.Memory;
 
@@ -190,6 +191,77 @@ public class MemoryServices {
         files.put("tmx", tmx);
 
         return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/content", data, files);
+    }
+
+    public ImportJob addToGlossary(long id, List<GlossaryTerm> glossaryTerms,
+                                   String glossaryType, String tuid) throws IOException {
+        return this.addToGlossary(Long.toString(id), glossaryTerms, glossaryType, tuid);
+    }
+    public ImportJob addToGlossary(String id, List<GlossaryTerm> glossaryTerms,
+                                   String glossaryType, String tuid) throws IOException {
+        Map<String, Object> data = new HashMap<>();
+        data.put("terms", glossaryTerms);
+        data.put("glossary_type", glossaryType);
+        data.put("tuid", tuid);
+
+        return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/glossary", data);
+    }
+
+    public ImportJob replaceInGlossary(long id, List<GlossaryTerm> glossaryTerms,
+                                       String glossaryType, String tuid) throws IOException {
+        return this.replaceInGlossary(Long.toString(id), glossaryTerms, glossaryType, tuid);
+    }
+    public ImportJob replaceInGlossary(String id, List<GlossaryTerm> glossaryTerms,
+                                       String glossaryType, String tuid) throws IOException {
+        Map<String, Object> data = new HashMap<>();
+        data.put("terms", glossaryTerms);
+        data.put("glossary_type", glossaryType);
+        data.put("tuid", tuid);
+
+        return this.httpClient.send(ImportJob.class, "put", "/memories/" + id + "/glossary", data);
+    }
+
+    public ImportJob importGlossary(long id, String csv, String glossaryType) throws IOException {
+        return this.importGlossary(Long.toString(id), new File(csv), glossaryType, null);
+    }
+
+    public ImportJob importGlossary(long id, File csv, String glossaryType) throws IOException {
+        return this.importGlossary(Long.toString(id), csv, glossaryType, null);
+    }
+
+    public ImportJob importGlossary(long id, String csv, String glossaryType, String compression) throws IOException {
+        return this.importGlossary(Long.toString(id), new File(csv), glossaryType, compression);
+    }
+
+    public ImportJob importGlossary(long id, File csv, String glossaryType, String compression) throws IOException {
+        return this.importGlossary(Long.toString(id), csv, glossaryType, compression);
+    }
+
+    public ImportJob importGlossary(String id, String csv, String glossaryType) throws IOException {
+        return this.importGlossary(id, new File(csv), glossaryType, null);
+    }
+
+    public ImportJob importGlossary(String id, File csv, String glossaryType) throws IOException {
+        return this.importGlossary(id, csv, glossaryType, null);
+    }
+
+    public ImportJob importGlossary(String id, String csv, String glossaryType,
+                                    String compression) throws IOException {
+        return this.importGlossary(id, new File(csv), glossaryType, compression);
+    }
+
+    public ImportJob importGlossary(String id, File csv, String glossaryType,
+                                    String compression) throws IOException {
+        Map<String, Object> data = new HashMap<>();
+        data.put("glossary_type", glossaryType);
+
+        if (compression != null)
+            data.put("compression", compression);
+
+        Map<String, File> files = new HashMap<>();
+        files.put("csv", csv);
+
+        return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/glossary", data, files);
     }
 
     public ImportJob getImportStatus(String uuid) throws IOException {
