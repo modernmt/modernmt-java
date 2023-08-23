@@ -190,6 +190,8 @@ public class ModernMT {
             String format = options.getFormat();
             Integer altTranslations = options.getAltTranslations();
             String session = options.getSession();
+            String glossaries = options.getGlossaries();
+            Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
 
             if (priority != null)
                 data.put("priority", priority);
@@ -205,6 +207,10 @@ public class ModernMT {
                 data.put("alt_translations", altTranslations);
             if (session != null)
                 data.put("session", session);
+            if (glossaries != null)
+                data.put("glossaries", glossaries);
+            if (ignoreGlossaryCase != null)
+                data.put("ignore_glossary_case", ignoreGlossaryCase);
         }
 
         return Arrays.asList(this.httpClient.send(Translation[].class, "get", "/translate", data));
@@ -328,6 +334,8 @@ public class ModernMT {
             Integer altTranslations = options.getAltTranslations();
             Object metadata = options.getMetadata();
             String session = options.getSession();
+            String glossaries = options.getGlossaries();
+            Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
 
             if (projectId != null)
                 data.put("project_id", projectId);
@@ -341,6 +349,10 @@ public class ModernMT {
                 data.put("metadata", metadata);
             if (session != null)
                 data.put("session", session);
+            if (glossaries != null)
+                data.put("glossaries", glossaries);
+            if (ignoreGlossaryCase != null)
+                data.put("ignore_glossary_case", ignoreGlossaryCase);
 
             String idempotencyKey = options.getIdempotencyKey();
 
