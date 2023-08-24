@@ -11,7 +11,7 @@ public class GlossaryTerm extends Model {
     }
 
     public String getTerm() {
-        return this.term;
+        return term;
     }
 
     public String getLanguage() {
