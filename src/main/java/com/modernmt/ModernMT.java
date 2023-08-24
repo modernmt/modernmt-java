@@ -190,7 +190,7 @@ public class ModernMT {
             String format = options.getFormat();
             Integer altTranslations = options.getAltTranslations();
             String session = options.getSession();
-            String glossaries = options.getGlossaries();
+            List<String> glossaries = options.getGlossaries();
             Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
 
             if (priority != null)
@@ -208,7 +208,7 @@ public class ModernMT {
             if (session != null)
                 data.put("session", session);
             if (glossaries != null)
-                data.put("glossaries", glossaries);
+                data.put("glossaries", String.join(",", glossaries));
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
         }
@@ -334,7 +334,7 @@ public class ModernMT {
             Integer altTranslations = options.getAltTranslations();
             Object metadata = options.getMetadata();
             String session = options.getSession();
-            String glossaries = options.getGlossaries();
+            List<String> glossaries = options.getGlossaries();
             Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
 
             if (projectId != null)
@@ -350,7 +350,7 @@ public class ModernMT {
             if (session != null)
                 data.put("session", session);
             if (glossaries != null)
-                data.put("glossaries", glossaries);
+                data.put("glossaries", String.join(",", glossaries));
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
 

@@ -1,5 +1,9 @@
 package com.modernmt.model;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.LongStream;
+
 public class TranslateOptions extends Model {
 
     private String priority;
@@ -9,7 +13,7 @@ public class TranslateOptions extends Model {
     private String format;
     private Integer altTranslations;
     private String session;
-    private String glossaries;
+    private List<String> glossaries;
     private Boolean ignoreGlossaryCase;
 
     private String idempotencyKey;
@@ -71,12 +75,16 @@ public class TranslateOptions extends Model {
         this.session = session;
     }
 
-    public String getGlossaries() {
+    public List<String> getGlossaries() {
         return glossaries;
     }
 
-    public void setGlossaries(String glossaries) {
+    public void setGlossaries(List<String> glossaries) {
         this.glossaries = glossaries;
+    }
+
+    public void setGlossaries(long[] glossaries) {
+        this.glossaries = LongStream.of(glossaries).mapToObj(Long::toString).collect(Collectors.toList());
     }
 
     public Boolean getIgnoreGlossaryCase() {
