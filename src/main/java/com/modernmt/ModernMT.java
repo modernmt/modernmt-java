@@ -169,6 +169,7 @@ public class ModernMT {
         return this.translate(source, target, q, hints, contextVector, null);
     }
 
+    @SuppressWarnings("Duplicates")
     public List<Translation> translate(String source, String target, List<String> q, List<String> hints,
                                        String contextVector, TranslateOptions options) throws IOException {
         Map<String, Object> data = new HashMap<>();
@@ -192,6 +193,7 @@ public class ModernMT {
             String session = options.getSession();
             List<String> glossaries = options.getGlossaries();
             Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
+            Boolean maskProfanities = options.getMaskProfanities();
 
             if (priority != null)
                 data.put("priority", priority);
@@ -211,6 +213,8 @@ public class ModernMT {
                 data.put("glossaries", String.join(",", glossaries));
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
+            if (maskProfanities != null)
+                data.put("mask_profanities", maskProfanities);
         }
 
         return Arrays.asList(this.httpClient.send(Translation[].class, "get", "/translate", data));
@@ -310,6 +314,7 @@ public class ModernMT {
 
     // batchTranslate implementation
 
+    @SuppressWarnings("Duplicates")
     private boolean batchTranslate(String webhook, String source, String target, Object q,
                                    List<String> hints, String contextVector,
                                    TranslateOptions options) throws IOException {
@@ -336,6 +341,7 @@ public class ModernMT {
             String session = options.getSession();
             List<String> glossaries = options.getGlossaries();
             Boolean ignoreGlossaryCase = options.getIgnoreGlossaryCase();
+            Boolean maskProfanities = options.getMaskProfanities();
 
             if (projectId != null)
                 data.put("project_id", projectId);
@@ -353,6 +359,8 @@ public class ModernMT {
                 data.put("glossaries", String.join(",", glossaries));
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
+            if (maskProfanities != null)
+                data.put("mask_profanities", maskProfanities);
 
             String idempotencyKey = options.getIdempotencyKey();
 

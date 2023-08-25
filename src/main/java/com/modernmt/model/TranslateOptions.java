@@ -15,6 +15,7 @@ public class TranslateOptions extends Model {
     private String session;
     private List<String> glossaries;
     private Boolean ignoreGlossaryCase;
+    private Boolean maskProfanities;
 
     private String idempotencyKey;
     private Object metadata;
@@ -93,6 +94,14 @@ public class TranslateOptions extends Model {
 
     public void setIgnoreGlossaryCase(Boolean ignoreGlossaryCase) {
         this.ignoreGlossaryCase = ignoreGlossaryCase;
+    }
+
+    public Boolean getMaskProfanities() {
+        return maskProfanities;
+    }
+
+    public void setMaskProfanities(Boolean maskProfanities) {
+        this.maskProfanities = maskProfanities;
     }
 
     public String getIdempotencyKey() {
