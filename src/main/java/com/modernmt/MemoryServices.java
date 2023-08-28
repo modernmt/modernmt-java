@@ -193,28 +193,26 @@ public class MemoryServices {
         return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/content", data, files);
     }
 
-    public ImportJob addToGlossary(long id, List<GlossaryTerm> glossaryTerms,
-                                   String type, String tuid) throws IOException {
-        return this.addToGlossary(Long.toString(id), glossaryTerms, type, tuid);
+    public ImportJob addToGlossary(long id, List<GlossaryTerm> terms, String type, String tuid) throws IOException {
+        return this.addToGlossary(Long.toString(id), terms, type, tuid);
     }
-    public ImportJob addToGlossary(String id, List<GlossaryTerm> glossaryTerms,
-                                   String type, String tuid) throws IOException {
+    public ImportJob addToGlossary(String id, List<GlossaryTerm> terms, String type, String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
-        data.put("terms", glossaryTerms);
+        data.put("terms", terms);
         data.put("type", type);
         data.put("tuid", tuid);
 
         return this.httpClient.send(ImportJob.class, "post", "/memories/" + id + "/glossary", data);
     }
 
-    public ImportJob replaceInGlossary(long id, List<GlossaryTerm> glossaryTerms,
+    public ImportJob replaceInGlossary(long id, List<GlossaryTerm> terms,
                                        String type, String tuid) throws IOException {
-        return this.replaceInGlossary(Long.toString(id), glossaryTerms, type, tuid);
+        return this.replaceInGlossary(Long.toString(id), terms, type, tuid);
     }
-    public ImportJob replaceInGlossary(String id, List<GlossaryTerm> glossaryTerms,
+    public ImportJob replaceInGlossary(String id, List<GlossaryTerm> terms,
                                        String type, String tuid) throws IOException {
         Map<String, Object> data = new HashMap<>();
-        data.put("terms", glossaryTerms);
+        data.put("terms", terms);
         data.put("type", type);
         data.put("tuid", tuid);
 
