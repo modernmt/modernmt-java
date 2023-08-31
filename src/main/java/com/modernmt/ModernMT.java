@@ -179,7 +179,7 @@ public class ModernMT {
         if (source != null)
             data.put("source", source);
         if (hints != null)
-            data.put("hints", String.join(",", hints));
+            data.put("hints", hints);
         if (contextVector != null)
             data.put("context_vector", contextVector);
 
@@ -210,7 +210,7 @@ public class ModernMT {
             if (session != null)
                 data.put("session", session);
             if (glossaries != null)
-                data.put("glossaries", String.join(",", glossaries));
+                data.put("glossaries", glossaries);
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
             if (maskProfanities != null)
@@ -328,7 +328,7 @@ public class ModernMT {
         if (source != null)
             data.put("source", source);
         if (hints != null)
-            data.put("hints", String.join(",", hints));
+            data.put("hints", hints);
         if (contextVector != null)
             data.put("context_vector", contextVector);
 
@@ -356,7 +356,7 @@ public class ModernMT {
             if (session != null)
                 data.put("session", session);
             if (glossaries != null)
-                data.put("glossaries", String.join(",", glossaries));
+                data.put("glossaries", glossaries);
             if (ignoreGlossaryCase != null)
                 data.put("ignore_glossary_case", ignoreGlossaryCase);
             if (maskProfanities != null)
@@ -520,7 +520,7 @@ public class ModernMT {
         data.put("text", text);
 
         if (hints != null)
-            data.put("hints", String.join(",", hints));
+            data.put("hints", hints);
         if (limit != null)
             data.put("limit", limit);
 
@@ -720,7 +720,7 @@ public class ModernMT {
         data.put("targets", targets);
 
         if (hints != null)
-            data.put("hints", String.join(",", hints));
+            data.put("hints", hints);
         if (limit != null)
             data.put("limit", limit);
         if (compression != null)
