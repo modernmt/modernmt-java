@@ -8,6 +8,7 @@ public class Translation extends Model {
     private int billedCharacters;
     private String detectedLanguage;
     private String[] altTranslations;
+    private Boolean detectedProfanities;
 
     public String getTranslation() {
         return translation;
@@ -31,5 +32,9 @@ public class Translation extends Model {
 
     public String[] getAltTranslations() {
         return altTranslations;
+    }
+
+    public Boolean getDetectedProfanities() {
+        return detectedProfanities;
     }
 }
