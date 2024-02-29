@@ -12,7 +12,7 @@ public class ImportJob extends Model {
     }
 
     public Long getMemory() {
-        return null;
+        return memory;
     }
 
     public int getSize() {
