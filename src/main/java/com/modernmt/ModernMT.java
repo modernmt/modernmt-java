@@ -750,7 +750,7 @@ public class ModernMT {
         data.put("sentence", sentences);
         data.put("translation", translations);
 
-        return Arrays.asList(this.httpClient.send(QualityEstimation[].class, "get", "/qe", data));
+        return Arrays.asList(this.httpClient.send(QualityEstimation[].class, "get", "/translate/qe", data));
     }
 
 }
